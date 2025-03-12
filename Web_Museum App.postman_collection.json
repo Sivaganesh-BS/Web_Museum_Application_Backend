@@ -1,0 +1,737 @@
+{
+	"info": {
+		"_postman_id": "1e15d810-91c3-4ebf-a180-1187ce82828d",
+		"name": "Web_Museum App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37165724"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/"
+			},
+			"response": []
+		},
+		{
+			"name": "Test",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/test"
+			},
+			"response": []
+		},
+		{
+			"name": "All Users",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "siva",
+						"password": "s@123",
+						"showPassword": false
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"admin\",\r\n    \"password\" : \"a@123\",\r\n    \"email\" : \"a@mail.com\",\r\n    \"membership_tier\" : \"1\",\r\n    \"role\" : \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/register/newuser"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"admin\",\r\n    \"password\" : \"a@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Exhibitions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/exhibitions/"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Exhibitions by Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/exhibitions/id?id=2449594f-1220-4541-8cc3-f0c3b3ffb3c0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"exhibitions",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2449594f-1220-4541-8cc3-f0c3b3ffb3c0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new Exhibition",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"New Exhibition - 03\",\r\n    \"description\" : \"Test Description - 03\",\r\n    \"image\" : \"test_image_url_.png\",\r\n    \"category\" : \"Kongu Tamil Culture\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/exhibitions/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Exhibition",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"exhibition_id\" : \"da1e77d8-eef5-4ccd-a8ee-8506dd04af58\",\r\n    \"title\": \"New Exhibition - 04\",\r\n    \"description\" : \"Test Description - 03\",\r\n    \"image\" : \"test_image_url_.png\",\r\n    \"category\" : \"Kongu Tamil Culture - 02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/exhibitions/update"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete the Exhibition",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"exhibition_id\" : \"da1e77d8-eef5-4ccd-a8ee-8506dd04af58\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/exhibitions/delete"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Events",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/events/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Event By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/events/id?id=b19f019a-8631-413d-bc34-7e9c045edc91",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"events",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "b19f019a-8631-413d-bc34-7e9c045edc91"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"New Event - 03\",\r\n    \"description\" : \"Test Description - 02\",\r\n    \"event_date\" : \"2025-03-11\",\r\n    \"location\" : \"Kangeyam\",\r\n    \"event_type\" : \"OFFLINE\",\r\n    \"price_per_ticket\" : 499,\r\n    \"max_capacity\" : 100,\r\n    \"available_seats\" : 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/events/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"event_id\": \"b19f019a-8631-413d-bc34-7e9c045edc91\",\r\n    \"title\": \"New Event - 01\",\r\n    \"description\": \"Test Description - 01\",\r\n    \"event_date\": \"2025-03-11T00:00:00.000+00:00\",\r\n    \"location\": \"Kangeyam\",\r\n    \"event_type\": \"OFFLINE\",\r\n    \"price_per_ticket\": 200.0,\r\n    \"max_capacity\": 0,\r\n    \"available_seats\": 95\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/events/update"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"New Event - 03\",\r\n    \"description\" : \"Test Description - 02\",\r\n    \"event_date\" : \"2025-03-11\",\r\n    \"location\" : \"Kangeyam\",\r\n    \"event_type\" : \"OFFLINE\",\r\n    // \"price_per_ticket\" : 499,\r\n    \"max_capacity\" : 100,\r\n    \"available_seats\" : 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/events/delete?id=b89d600e-aaad-4633-a999-9330f9b8a419",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"events",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "b89d600e-aaad-4633-a999-9330f9b8a419"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book Tickets",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"eventId\": \"b19f019a-8631-413d-bc34-7e9c045edc91\",\r\n    \"quantity\" : 5,\r\n    \"amount\" : 10000,\r\n    \"payment_method\" : \"ONLINE\",\r\n    \"userId\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/events/book"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tickets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/events/tickets/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Community Posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/community/post/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Community Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"New Content for Community Post - 03\",\r\n    \"userId\": 1,\r\n    \"exhibitionId\": \"2449594f-1220-4541-8cc3-f0c3b3ffb3c0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/community/post/create"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Community Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"New Content for Community Post - 03\",\r\n    \"community_post_id\" : \"61be7b12-fe78-4cc7-9682-396a1c033053\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/community/post/update"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Community Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"New Content for Community Post - 03\",\r\n    \"community_post_id\" : \"61be7b12-fe78-4cc7-9682-396a1c033053\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/community/post/delete?id=48596b6a-4a79-42b6-befb-66687e657447",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"community",
+						"post",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "48596b6a-4a79-42b6-befb-66687e657447"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Comments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/comment/post/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comments By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/comment/post/id?id=6af24e94-67e3-474c-a3df-6dec60ec0f74",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comment",
+						"post",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6af24e94-67e3-474c-a3df-6dec60ec0f74"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"New Content for Comment - 01\",\r\n    \"userid\" : 1,\r\n    \"communitypostid\" : \"4ad1f22d-689c-4fdc-b80d-aa8180ee6d06\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/comment/post/create"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/comment/post/delete?id=4bd10448-ef96-440f-b20d-eae4773c3a31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comment",
+						"post",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4bd10448-ef96-440f-b20d-eae4773c3a31"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
